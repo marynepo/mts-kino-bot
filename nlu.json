@@ -6,7 +6,7 @@
   },
   "settings" : {
     "language" : "ru",
-    "spellingCorrection" : false,
+    "spellingCorrection" : true,
     "classificationAlgorithm" : "sts",
     "timezone" : "Europe/Moscow",
     "extendedSettings" : {
@@ -41,17 +41,39 @@
     },
     "priority" : 0
   }, {
-    "path" : "/расписание сеансов",
+    "path" : "/Timetable",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "пока"
+      "text" : "Подскажите расписание сеансов * @duckling.date"
+    }, {
+      "text" : "Когда будут показывать @film"
+    }, {
+      "text" : "Хочу узнать афишу на @duckling.date"
+    }, {
+      "text" : "Что будут показывать @duckling.date?"
+    }, {
+      "text" : "сеансы @duckling.date @film"
+    }, {
+      "text" : "расписание на @duckling.date"
+    }, {
+      "text" : "расписание на @duckling.date @film"
     } ],
     "classificationRules" : {
       "refs" : [ ]
     },
     "patterns" : [ ],
-    "slots" : [ ],
+    "slots" : [ {
+      "name" : "Film",
+      "entity" : "film",
+      "required" : true,
+      "prompts" : [ "На какой фильм вы хотите сходить?" ]
+    }, {
+      "name" : "Date",
+      "entity" : "duckling.date",
+      "required" : true,
+      "prompts" : [ "Выберите дату" ]
+    } ],
     "priority" : 0
   }, {
     "path" : "/привет",
@@ -67,12 +89,27 @@
   } ],
   "entities" : [ {
     "entity" : {
-      "name" : "Новая_сущность",
+      "name" : "film",
       "enabled" : true,
       "shared" : false,
       "type" : "annotation",
       "priority" : 1,
-      "noSpelling" : true,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "name" : "dates",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
       "noMorph" : false,
       "phoneticSearch" : false,
       "fuzzySearch" : false,
