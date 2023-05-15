@@ -1,10 +1,17 @@
-require: slotfilling/slotFilling.sc
-  module = sys.zb-common
+require: timmetable.csv
+  name = timetable
+  var = timetable
+
 theme: /
 
     state: Start
         q!: $regex</start>
-        a: Начнём.
+        script:
+            $context.session = {};
+            $context.client = {};
+            $context.temp = {};
+            $context.response = {};
+        a: Здравствуйте! Чем я могу вам помочь?
 
     state: Hello
         intent!: /привет

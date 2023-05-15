@@ -41,7 +41,7 @@
     },
     "priority" : 0
   }, {
-    "path" : "/пока",
+    "path" : "/расписание сеансов",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
@@ -50,6 +50,8 @@
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
+    "slots" : [ ],
     "priority" : 0
   }, {
     "path" : "/привет",
@@ -63,8 +65,23 @@
     },
     "priority" : 0
   } ],
-  "entities" : [ ],
-  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "Новая_сущность",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ ]
+  } ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.date", "duckling.time-of-day", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url", "zb.datetime" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
@@ -134,11 +151,11 @@
   }, {
     "name" : "duckling.date",
     "version" : "v2",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "duckling.time-of-day",
     "version" : "v2",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "duckling.duration",
     "version" : "v2",
@@ -164,7 +181,7 @@
     "enabled" : false
   }, {
     "name" : "zb.datetime",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "zb.number",
     "enabled" : false
