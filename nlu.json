@@ -22,61 +22,51 @@
     }
   },
   "intents" : [ {
-    "path" : "/Расписание по фильму",
+    "path" : "/Расписание",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "Подскажите расписание сеансов @film"
-    }, {
-      "text" : "Когда будут показывать @film"
-    }, {
-      "text" : "расписание @film"
+      "text" : "В какое время показывают @film"
     }, {
       "text" : "Когда сходить на @film"
     }, {
-      "text" : "В какое время показывают @film"
-    } ],
-    "classificationRules" : {
-      "refs" : [ {
-        "entityName" : "film",
-        "predicate" : "CONTAINS"
-      } ]
-    },
-    "patterns" : [ ],
-    "slots" : [ ],
-    "priority" : 0
-  }, {
-    "path" : "/Расписание по дате",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "Хочу узнать афишу @date"
+      "text" : "расписание @film"
     }, {
-      "text" : "Что показывают @date"
+      "text" : "Когда будут показывать @film"
     }, {
-      "text" : "Какие фильмы в прокате @date"
+      "text" : "Подскажите расписание сеансов @film"
     }, {
-      "text" : "Что можно посмотреть @date"
+      "text" : "Какие есть сеансы @film @date?"
     }, {
       "text" : "На что сходить @date?"
     }, {
-      "text" : "Какие есть сеансы @date?"
+      "text" : "Что можно посмотреть @date"
+    }, {
+      "text" : "Какие фильмы в прокате @date"
+    }, {
+      "text" : "Что показывают @date"
+    }, {
+      "text" : "Хочу узнать афишу @date"
+    }, {
+      "text" : "Во сколько @film @date"
+    }, {
+      "text" : "афиша @date"
     } ],
-    "classificationRules" : {
-      "refs" : [ {
-        "entityName" : "date",
-        "predicate" : "CONTAINS"
-      } ]
-    },
-    "patterns" : [ ],
-    "priority" : 0
-  }, {
-    "path" : "/Расписание по фильму/Новый интент",
-    "enabled" : true,
-    "shared" : false,
     "classificationRules" : {
       "refs" : [ ]
     },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "date",
+      "entity" : "date",
+      "required" : false,
+      "prompts" : [ ]
+    }, {
+      "name" : "film",
+      "entity" : "film",
+      "required" : false,
+      "prompts" : [ ]
+    } ],
     "priority" : 0
   } ],
   "entities" : [ {
