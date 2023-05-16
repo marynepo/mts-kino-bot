@@ -50,24 +50,21 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "Хочу узнать афишу @duckling.date"
+      "text" : "Хочу узнать афишу @date"
     }, {
-      "text" : "Что показывают @duckling.date"
+      "text" : "Что показывают @date"
     }, {
-      "text" : "Какие фильмы в прокате @duckling.date"
+      "text" : "Какие фильмы в прокате @date"
     }, {
-      "text" : "Что можно посмотреть @duckling.date"
+      "text" : "Что можно посмотреть @date"
     }, {
-      "text" : "На что сходить @duckling.date?"
+      "text" : "На что сходить @date?"
     }, {
-      "text" : "Какие есть сеансы @duckling.date?"
+      "text" : "Какие есть сеансы @date?"
     } ],
     "classificationRules" : {
       "refs" : [ {
-        "entityName" : "duckling.interval",
-        "predicate" : "CONTAINS"
-      }, {
-        "entityName" : "duckling.date",
+        "entityName" : "date",
         "predicate" : "CONTAINS"
       } ]
     },
@@ -108,6 +105,25 @@
       "type" : "pattern",
       "rule" : [ "Холодное сердце" ],
       "value" : "{\n  \"film_id\": 3,\n  \"title\": \"Холодное сердце\",\n  \"shows\": [\n    {\n      \"date\": \"16.05.2022\",\n      \"time\": \"11:30\",\n      \"cinema_room\": 1,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"16.05.2022\",\n      \"time\": \"14:40\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"18:30\",\n      \"cinema_room\": 3,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"18.05.2022\",\n      \"time\": \"17:10\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    }\n  ]\n}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "date",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "pattern",
+      "rule" : [ "@duckling.date" ],
+      "value" : ""
     } ]
   } ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url", "duckling.interval" ],
