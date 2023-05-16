@@ -74,10 +74,10 @@ theme: /
         event: telegramCallbackQuery
         script:
             $session.show_id = parseInt($request.query);
-        go!: /ShowInfo
+        go!: ShowInfo
         
     state: ShowInfo
-            a: Информация о сеансе: \n Фильм "{{ shows[$session.id].title}}" \n {{ shows[$session.id].format}} \n {{ shows[$session.id].date}} в {{ shows[$session.id].time}} \n Зал {{ shows[$session.id].room}} \n Цена: {{ shows[$session.id].price}}
+            a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].title}}" \n {{ shows[$session.show_id].format}} \n {{ shows[$session.show_id].date}} в {{ shows[$session.show_id].time}} \n Зал {{ shows[$session.show_id].room}} \n Цена: {{ shows[$session.show_id].price}}
             a: Хотите купить билет?
             buttons:
                 "да" -> /BuyTicket
