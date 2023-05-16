@@ -52,22 +52,17 @@
       "text" : "Во сколько @film @date"
     }, {
       "text" : "афиша @date"
+    }, {
+      "text" : "что идет @date?"
     } ],
     "classificationRules" : {
-      "refs" : [ ]
+      "refs" : [ {
+        "entityName" : "classRule_2359",
+        "predicate" : "CONTAINS_NOT"
+      } ]
     },
     "patterns" : [ ],
-    "slots" : [ {
-      "name" : "date",
-      "entity" : "date",
-      "required" : false,
-      "prompts" : [ ]
-    }, {
-      "name" : "film",
-      "entity" : "film",
-      "required" : false,
-      "prompts" : [ ]
-    } ],
+    "slots" : [ ],
     "priority" : 0
   } ],
   "entities" : [ {
@@ -114,6 +109,25 @@
     "records" : [ {
       "type" : "pattern",
       "rule" : [ "@duckling.date" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "name" : "classRule_2359",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "купить", "бронировать", "забронировать", "приобрести" ],
       "value" : ""
     } ]
   } ],

@@ -40,7 +40,7 @@ theme: /
                 else {
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if ($session.film_id == shows[id].value.film_id) {
-                            var button_name = shows[id].value.date.substring(0,6) + " в " + shows[id].value.time;
+                            var button_name = shows[id].value.date.substring(0,5) + " в " + shows[id].value.time;
                             n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
