@@ -36,9 +36,10 @@ theme: /
 
     state: /DateTimetable
         intent!: /Расписание по дате
-        a: {{ $parseTree._date.value.substring(0,10) }}
+        a: {{ $parseTree._date.value.substring(0,10).replace("-",".") }}
         script:
-            $session.date = $parseTree._date.value.substring(0,10).replace("-",".");
+            $session.date = $parseTree._date.value.substring(0,10);
+            $session.date = $session.date.substring(8,10) + "." + $session.date.substring(5,7) + "." + $session.date.substring(0,4)
             for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                 if ($session.date == shows[id].value.date) {
                     var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
