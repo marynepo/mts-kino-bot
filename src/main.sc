@@ -1,6 +1,6 @@
-require: timmetable.csv
-  name = timetable
-  var = timetable
+require: shows.csv
+  name = shows
+  var = shows
   
 require: slotfilling/slotFilling.sc
   module = sys.zb-common
@@ -16,25 +16,36 @@ theme: /
             $context.response = {};
         a: Здравствуйте! Чем я могу вам помочь?
 
-    state: Hello
-        intent!: /Расписание
-        if: 
 
-    state: ChooseFilm
-        a: Выберите фильм
+    state: /FilmTimetable
+        intent!: /Расписание по фильму
+        a: Нажмите на сеанс, если хотите купить билет.
         script:
-            for (var id = 1; id < Object.keys(films).length + 1; id++) {
-                var regions = pizza[id].value.region;
-                if (_.contains(regions, $client.city)) {
-                    var button_name = pizza[id].value.title;
-                    $reactions.buttons({text: button_name, transition: 'GetName'})
+            $session.film_id = $parseTree._film.film_id
+            for (var id = 1; id < Object.keys(shows).length + 1; id++) {
+                if ($session.film_id == shows[id].value.film_id) {
+                    var button_name = shows[id].value.date + "в" + shows[id].value.time + "за" + shows[id].value.date;
+                    $reactions.inlineButtons({text: button_name, callback_data: id })
                 }
             }
 
-    state: KnowledgeBase
-        intentGroup!: /KnowledgeBase
-        a: Нашёл ответ в базе знаний!
-        script: $faq.pushReplies();
+    state: /DateTimetable
+        intent!: /Расписание по дате
+        a: Выберите сеанс
+        script:
+            $session.date = $parseTree._duckling.date.day + "." + $parseTree._duckling.date.month + "." + $parseTree._duckling.date.year
+            for (var id = 1; id < Object.keys(shows).length + 1; id++) {
+                if ($session.date == shows[id].value.date) {
+                    var button_name = shows[id].value.title + "в" + shows[id].value.time + "за" + shows[id].value.date;
+                    $reactions.inlineButtons({text: button_name, callback_data: id })
+                }
+            }
+            
+    state: GetShowId
+        event: telegramCallbackQuery
+        script:
+            $session.show_id = parseInt($request.query);
+        a: здесь должен быть переход к шаблону с покупкой билетов
 
     state: NoMatch
         event!: noMatch

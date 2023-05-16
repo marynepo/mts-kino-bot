@@ -22,48 +22,64 @@
     }
   },
   "intents" : [ {
-    "path" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
+    "path" : "/Расписание по фильму",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "Новый вопрос"
-    } ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "priority" : 0
-  }, {
-    "path" : "/Расписание",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "Подскажите расписание сеансов @duckling.date"
+      "text" : "Подскажите расписание сеансов @film"
     }, {
       "text" : "Когда будут показывать @film"
     }, {
+      "text" : "расписание @film"
+    }, {
+      "text" : "Когда сходить на @film"
+    }, {
+      "text" : "В какое время показывают @film"
+    } ],
+    "classificationRules" : {
+      "refs" : [ {
+        "entityName" : "film",
+        "predicate" : "CONTAINS"
+      } ]
+    },
+    "patterns" : [ ],
+    "slots" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Расписание по дате",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
       "text" : "Хочу узнать афишу @duckling.date"
     }, {
-      "text" : "Что будут показывать @duckling.date?"
+      "text" : "Что показывают @duckling.date"
     }, {
-      "text" : "расписание @duckling.date @film"
+      "text" : "Какие фильмы в прокате @duckling.date"
     }, {
-      "text" : "Во сколько завтра @film"
+      "text" : "Что можно посмотреть @duckling.date"
+    }, {
+      "text" : "На что сходить @duckling.date?"
+    }, {
+      "text" : "Какие есть сеансы @duckling.date?"
     } ],
+    "classificationRules" : {
+      "refs" : [ {
+        "entityName" : "duckling.interval",
+        "predicate" : "CONTAINS"
+      }, {
+        "entityName" : "duckling.date",
+        "predicate" : "CONTAINS"
+      } ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/Расписание по фильму/Новый интент",
+    "enabled" : true,
+    "shared" : false,
     "classificationRules" : {
       "refs" : [ ]
     },
-    "patterns" : [ ],
-    "slots" : [ {
-      "name" : "Film",
-      "entity" : "film",
-      "required" : true,
-      "prompts" : [ "Выберите фильм" ]
-    }, {
-      "name" : "Date",
-      "entity" : "duckling.date",
-      "required" : true,
-      "prompts" : [ "Выберите дату" ]
-    } ],
     "priority" : 0
   } ],
   "entities" : [ {
@@ -91,7 +107,7 @@
     }, {
       "type" : "pattern",
       "rule" : [ "Холодное сердце" ],
-      "value" : "{\"film_id\": 2, \"title\": \"Решение уйти\", \"shows\": [{\"date\": \"16.05.2022\", \"\"time\": \"11:30\", \"cinema_room\": 1, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"16.05.2022\", \"time\": \"14:40\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"18:30\", \"cinema_room\": 3, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"18.05.2022\", \"time\": \"17:10\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}]}"
+      "value" : "{\"film_id\": 3, \"title\": \"Холодное сердце\", \"shows\": [{\"date\": \"16.05.2022\", \"\"time\": \"11:30\", \"cinema_room\": 1, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"16.05.2022\", \"time\": \"14:40\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"18:30\", \"cinema_room\": 3, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"18.05.2022\", \"time\": \"17:10\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}]}"
     } ]
   } ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url", "duckling.interval" ],
@@ -199,13 +215,6 @@
     "name" : "zb.number",
     "enabled" : false
   } ],
-  "faq" : [ {
-    "intentPath" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
-    "replies" : [ {
-      "type" : "text",
-      "text" : "",
-      "markup" : "plain"
-    } ]
-  } ],
+  "faq" : [ ],
   "skills" : [ ]
 }
