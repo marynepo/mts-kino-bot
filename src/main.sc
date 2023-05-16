@@ -29,7 +29,7 @@ theme: /
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if (($session.date == shows[id].value.date ) && ($session.film_id == shows[id].value.film_id)) {
                             var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
-                            $reactions.inlineButtons({text: button_name, callback_data: id })
+                            $reactions.inlineButtons({text: button_name, callback_data: id, transition: GetShowId })
                         }
                     }
                 }
@@ -37,7 +37,7 @@ theme: /
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if ($session.film_id == shows[id].value.film_id) {
                             var button_name = shows[id].value.date + " в " + shows[id].value.time + " за " + shows[id].value.date;
-                            $reactions.inlineButtons({text: button_name, callback_data: id })
+                            $reactions.inlineButtons({text: button_name, callback_data: id, transition: GetShowId })
                         }
                     }
                 }
