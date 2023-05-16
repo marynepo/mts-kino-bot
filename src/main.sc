@@ -24,10 +24,15 @@ theme: /
             $session.film_id = $parseTree._film.film_id
             for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                 if ($session.film_id == shows[id].value.film_id) {
-                    var button_name = shows[id].value.date + "в" + shows[id].value.time + "за" + shows[id].value.date;
+                    var button_name = shows[id].value.date + " в " + shows[id].value.time + " за " + shows[id].value.date;
                     $reactions.inlineButtons({text: button_name, callback_data: id })
                 }
             }
+            
+        state: ClickButtons
+            q: *
+            a: Нажмите, пожалуйста, кнопку.
+            go!: ..
 
     state: /DateTimetable
         intent!: /Расписание по дате
@@ -36,7 +41,7 @@ theme: /
             $session.date = $parseTree._duckling.date.day + "." + $parseTree._duckling.date.month + "." + $parseTree._duckling.date.year
             for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                 if ($session.date == shows[id].value.date) {
-                    var button_name = shows[id].value.title + "в" + shows[id].value.time + "за" + shows[id].value.date;
+                    var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
                     $reactions.inlineButtons({text: button_name, callback_data: id })
                 }
             }
