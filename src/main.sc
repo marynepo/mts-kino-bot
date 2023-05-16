@@ -36,7 +36,7 @@ theme: /
 
     state: /DateTimetable
         intent!: /Расписание по дате
-        a: Выберите сеанс
+        a: Выберите сеанс {{ $parseTree._date.value.substring(0,10).replace("-",".") }}
         script:
             $session.date = $parseTree._date.value.substring(0,10).replace("-",".");
             for (var id = 1; id < Object.keys(shows).length + 1; id++) {
