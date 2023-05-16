@@ -62,6 +62,7 @@ theme: /
             }
             
             else {
+                n_buttons = -1;
                 $reactions.answer("Пожалуйста, укажите дату или выберите фильм.");
             }
             
@@ -73,8 +74,21 @@ theme: /
         event: telegramCallbackQuery
         script:
             $session.show_id = parseInt($request.query);
-        a: здесь должен быть переход к шаблону с покупкой билетов
+        go!: /ShowInfo
+        
+    state: ShowInfo
+            a: Информация о сеансе: \n Фильм "{{ shows[$session.id].title}}" \n {{ shows[$session.id].format}} \n {{ shows[$session.id].date}} в {{ shows[$session.id].time}} \n Зал {{ shows[$session.id].room}} \n Цена: {{ shows[$session.id].price}}
+            a: Хотите купить билет?
+            buttons:
+                "да" -> /BuyTicket
+                "нет" -> /EndQuery
+    
+    state: BuyTicket
+        a: /переход к покупке билета/
+        
+    state: EndQuery
+        a: Спасибо. Обращайтесь еще.
 
     state: NoMatch
         event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
+        a: Извините, я не понял ваш вопрос. Попробуйте переформулировать.

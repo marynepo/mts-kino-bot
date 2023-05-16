@@ -11,6 +11,7 @@
     "timezone" : "Europe/Moscow",
     "extendedSettings" : {
       "tokenizerEngine" : "mystem",
+      "allowedPatterns" : [ "film" ],
       "useShared" : false
     },
     "shared" : false,
@@ -85,16 +86,16 @@
     },
     "records" : [ {
       "type" : "synonyms",
-      "rule" : [ "Аватар 2", "Аватар", "Аватар: Путь воды", "Аватар. Часть 2" ],
-      "value" : "{\n  \"film_id\": 1,\n  \"title\": \"Аватар: Путь воды\",\n  \"shows\": [\n    {\n      \"date\": \"16.05.2022\",\n      \"time\": \"20:30\",\n      \"cinema_room\": 1,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"16.05.2022\",\n      \"time\": \"21:20\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"10:30\",\n      \"cinema_room\": 3,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"21:20\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    }\n  ]\n}"
+      "rule" : [ "аватар 2", "аватар", "аватар: путь вода", "аватар часть 2", "аватар вторая часть" ],
+      "value" : "{\n  \"film_id\": 1,\n  \"title\": \"Аватар: Путь воды\"\n}"
     }, {
       "type" : "pattern",
-      "rule" : [ "Решение уйти" ],
-      "value" : "{\n  \"film_id\": 2,\n  \"title\": \"Решение уйти\",\n  \"shows\": [\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"15:30\",\n      \"cinema_room\": 1,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"19:40\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"22:30\",\n      \"cinema_room\": 3,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"18.05.2022\",\n      \"time\": \"21:20\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    }\n  ]\n}"
+      "rule" : [ "решение уйти" ],
+      "value" : "{\n  \"film_id\": 2,\n  \"title\": \"Решение уйти\",\n}"
     }, {
       "type" : "pattern",
-      "rule" : [ "Холодное сердце" ],
-      "value" : "{\n  \"film_id\": 3,\n  \"title\": \"Холодное сердце\",\n  \"shows\": [\n    {\n      \"date\": \"16.05.2022\",\n      \"time\": \"11:30\",\n      \"cinema_room\": 1,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"16.05.2022\",\n      \"time\": \"14:40\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"17.05.2022\",\n      \"time\": \"18:30\",\n      \"cinema_room\": 3,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    },\n    {\n      \"date\": \"18.05.2022\",\n      \"time\": \"17:10\",\n      \"cinema_room\": 2,\n      \"format\": \"2D\",\n      \"price\": \"300 руб.\"\n    }\n  ]\n}"
+      "rule" : [ "холодный сердце" ],
+      "value" : "{\n  \"film_id\": 3,\n  \"title\": \"Холодное сердце\",\n}"
     } ]
   }, {
     "entity" : {
