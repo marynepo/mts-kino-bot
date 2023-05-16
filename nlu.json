@@ -91,11 +91,11 @@
     }, {
       "type" : "synonyms",
       "rule" : [ "решение уйти" ],
-      "value" : "{\n  \"film_id\": 2,\n  \"title\": \"Решение уйти\",\n}"
+      "value" : "{\n  \"film_id\": 2,\n  \"title\": \"Решение уйти\"\n}"
     }, {
       "type" : "synonyms",
       "rule" : [ "холодный сердце" ],
-      "value" : "{\n  \"film_id\": 3,\n  \"title\": \"Холодное сердце\",\n}"
+      "value" : "{\n  \"film_id\": 3,\n  \"title\": \"Холодное сердце\"\n}"
     } ]
   }, {
     "entity" : {

@@ -29,7 +29,7 @@ theme: /
                     $session.date = $session.date.substring(8,10) + "." + $session.date.substring(5,7) + "." + $session.date.substring(0,4)
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if (($session.date == shows[id].value.date ) && ($session.film_id == shows[id].value.film_id)) {
-                            var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
+                            var button_name = shows[id].value.time;
                             n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
@@ -40,7 +40,7 @@ theme: /
                 else {
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if ($session.film_id == shows[id].value.film_id) {
-                            var button_name = shows[id].value.time + " за " + shows[id].value.price;
+                            var button_name = shows[id].value.date.substring(0,6) + " в " + shows[id].value.time;
                             n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
@@ -74,10 +74,10 @@ theme: /
         event: telegramCallbackQuery
         script:
             $session.show_id = parseInt($request.query);
-        go!: ShowInfo
+        go!: /ShowInfo
         
     state: ShowInfo
-            a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].title}}" \n {{ shows[$session.show_id].format}} \n {{ shows[$session.show_id].date}} в {{ shows[$session.show_id].time}} \n Зал {{ shows[$session.show_id].room}} \n Цена: {{ shows[$session.show_id].price}}
+            a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].title}}" \n {{ shows[$session.show_id].format}} \n {{ shows[$session.show_id].date.substring(0,6)}} в {{ shows[$session.show_id].time}} \n Зал {{ shows[$session.show_id].room}} \n Цена: {{ shows[$session.show_id].price}}
             a: Хотите купить билет?
             buttons:
                 "да" -> /BuyTicket
