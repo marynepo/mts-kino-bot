@@ -56,7 +56,7 @@ theme: /
                     if ($session.date == shows[id].value.date) {
                         var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.price;
                         n_buttons = n_buttons + 1;
-                        $reactions.inlineButtons({text: button_name, callback_data: id, transition: "/ShowInfo"})
+                        $reactions.inlineButtons({text: button_name, callback_data: id})
                     }
                 }
             }
@@ -77,14 +77,14 @@ theme: /
         go!: /ShowInfo
         
     state: ShowInfo
-            a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].value.title}}" \n {{ shows[$session.show_id].value.format}} \n {{ shows[$session.show_id].value.date.substring(0,6)}} в {{ shows[$session.show_id].value.time}} \n Зал {{ shows[$session.show_id].value.room}} \n Цена: {{ shows[$session.show_id].value.price}}
+            a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].value.title}}" \n {{ shows[$session.show_id].value.format}} \n {{ shows[$session.show_id].value.date.substring(0,5)}} в {{ shows[$session.show_id].value.time}} \n Зал {{ shows[$session.show_id].value.cinema_room}} \n Цена: {{ shows[$session.show_id].value.price}}
             a: Хотите купить билет?
             buttons:
                 "да" -> /BuyTicket
                 "нет" -> /EndQuery
     
     state: BuyTicket
-        a: /переход к покупке билета/
+        a: /Тут должен быть переход к покупке билета/
         
     state: EndQuery
         a: Спасибо. Обращайтесь еще.
