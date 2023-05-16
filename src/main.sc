@@ -77,8 +77,6 @@ theme: /
         go!: /ShowInfo
         
     state: ShowInfo
-            script:
-                $session.show_id = parseInt($request.query);
             a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].value.title}}" \n {{ shows[$session.show_id].value.format}} \n {{ shows[$session.show_id].value.date.substring(0,6)}} в {{ shows[$session.show_id].value.time}} \n Зал {{ shows[$session.show_id].value.room}} \n Цена: {{ shows[$session.show_id].value.price}}
             a: Хотите купить билет?
             buttons:
