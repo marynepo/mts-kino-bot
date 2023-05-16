@@ -1,6 +1,9 @@
 require: timmetable.csv
   name = timetable
   var = timetable
+  
+require: slotfilling/slotFilling.sc
+  module = sys.zb-common
 
 theme: /
 
@@ -14,8 +17,8 @@ theme: /
         a: Здравствуйте! Чем я могу вам помочь?
 
     state: Hello
-        intent!: /привет
-        a: Привет привет
+        intent!: /Расписание
+        if: 
 
     state: Bye
         intent!: /пока

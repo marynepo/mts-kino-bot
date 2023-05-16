@@ -33,31 +33,21 @@
     },
     "priority" : 0
   }, {
-    "path" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ",
-    "enabled" : true,
-    "shared" : false,
-    "classificationRules" : {
-      "refs" : [ ]
-    },
-    "priority" : 0
-  }, {
-    "path" : "/Timetable",
+    "path" : "/Расписание",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "Подскажите расписание сеансов * @duckling.date"
+      "text" : "Подскажите расписание сеансов @duckling.date"
     }, {
       "text" : "Когда будут показывать @film"
     }, {
-      "text" : "Хочу узнать афишу на @duckling.date"
+      "text" : "Хочу узнать афишу @duckling.date"
     }, {
       "text" : "Что будут показывать @duckling.date?"
     }, {
-      "text" : "сеансы @duckling.date @film"
+      "text" : "расписание @duckling.date @film"
     }, {
-      "text" : "расписание на @duckling.date"
-    }, {
-      "text" : "расписание на @duckling.date @film"
+      "text" : "Во сколько завтра @film"
     } ],
     "classificationRules" : {
       "refs" : [ ]
@@ -67,24 +57,13 @@
       "name" : "Film",
       "entity" : "film",
       "required" : true,
-      "prompts" : [ "На какой фильм вы хотите сходить?" ]
+      "prompts" : [ "Выберите фильм" ]
     }, {
       "name" : "Date",
       "entity" : "duckling.date",
       "required" : true,
       "prompts" : [ "Выберите дату" ]
     } ],
-    "priority" : 0
-  }, {
-    "path" : "/привет",
-    "enabled" : true,
-    "shared" : false,
-    "phrases" : [ {
-      "text" : "привет"
-    } ],
-    "classificationRules" : {
-      "refs" : [ ]
-    },
     "priority" : 0
   } ],
   "entities" : [ {
@@ -101,24 +80,21 @@
       "client" : false,
       "hidden" : false
     },
-    "records" : [ ]
-  }, {
-    "entity" : {
-      "name" : "dates",
-      "enabled" : true,
-      "shared" : false,
-      "type" : "annotation",
-      "priority" : 1,
-      "noSpelling" : false,
-      "noMorph" : false,
-      "phoneticSearch" : false,
-      "fuzzySearch" : false,
-      "client" : false,
-      "hidden" : false
-    },
-    "records" : [ ]
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Аватар 3", "Аватар", "Аватар: Путь воды", "Аватар. Часть 3" ],
+      "value" : "{\"film_id\": 1, \"title\": \"Аватар: Путь воды\", \"shows\": [{\"date\": \"16.05.2022\", \"\"time\": \"20:30\", \"cinema_room\": 1, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"16.05.2022\", \"time\": \"21:20\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"10:30\", \"cinema_room\": 3, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"21:20\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}]}"
+    }, {
+      "type" : "pattern",
+      "rule" : [ "Решение уйти" ],
+      "value" : "{\"film_id\": 2, \"title\": \"Решение уйти\", \"shows\": [{\"date\": \"17.05.2022\", \"\"time\": \"15:30\", \"cinema_room\": 1, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"19:40\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"22:30\", \"cinema_room\": 3, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"18.05.2022\", \"time\": \"21:20\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}]}"
+    }, {
+      "type" : "pattern",
+      "rule" : [ "Холодное сердце" ],
+      "value" : "{\"film_id\": 2, \"title\": \"Решение уйти\", \"shows\": [{\"date\": \"16.05.2022\", \"\"time\": \"11:30\", \"cinema_room\": 1, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"16.05.2022\", \"time\": \"14:40\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"17.05.2022\", \"time\": \"18:30\", \"cinema_room\": 3, \"format\": \"2D\", \"price\": \"300 руб.\"}, {\"date\": \"18.05.2022\", \"time\": \"17:10\", \"cinema_room\": 2, \"format\": \"2D\", \"price\": \"300 руб.\"}]}"
+    } ]
   } ],
-  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.date", "duckling.time-of-day", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url", "zb.datetime" ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.date", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url", "duckling.interval" ],
   "spellerDictionary" : [ ],
   "systemEntities" : [ {
     "name" : "mystem.geo",
@@ -184,7 +160,7 @@
   }, {
     "name" : "duckling.time",
     "version" : "v2",
-    "enabled" : true
+    "enabled" : false
   }, {
     "name" : "duckling.date",
     "version" : "v2",
@@ -192,7 +168,7 @@
   }, {
     "name" : "duckling.time-of-day",
     "version" : "v2",
-    "enabled" : true
+    "enabled" : false
   }, {
     "name" : "duckling.duration",
     "version" : "v2",
@@ -212,13 +188,13 @@
   }, {
     "name" : "duckling.interval",
     "version" : "v2",
-    "enabled" : false
+    "enabled" : true
   }, {
     "name" : "mlps-obscene.obscene",
     "enabled" : false
   }, {
     "name" : "zb.datetime",
-    "enabled" : true
+    "enabled" : false
   }, {
     "name" : "zb.number",
     "enabled" : false
@@ -230,9 +206,6 @@
       "text" : "",
       "markup" : "plain"
     } ]
-  }, {
-    "intentPath" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ",
-    "replies" : [ ]
   } ],
   "skills" : [ ]
 }
