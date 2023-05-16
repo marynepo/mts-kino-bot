@@ -56,7 +56,7 @@ theme: /
                     if ($session.date == shows[id].value.date) {
                         var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.price;
                         n_buttons = n_buttons + 1;
-                        $reactions.inlineButtons({text: button_name, callback_data: id})
+                        $reactions.inlineButtons({text: button_name, callback_data: id, transition: "/ShowInfo"})
                     }
                 }
             }
@@ -77,6 +77,8 @@ theme: /
         go!: /ShowInfo
         
     state: ShowInfo
+            script:
+                $session.show_id = parseInt($request.query);
             a: Информация о сеансе: \n Фильм "{{ shows[$session.show_id].title}}" \n {{ shows[$session.show_id].format}} \n {{ shows[$session.show_id].date.substring(0,6)}} в {{ shows[$session.show_id].time}} \n Зал {{ shows[$session.show_id].room}} \n Цена: {{ shows[$session.show_id].price}}
             a: Хотите купить билет?
             buttons:
