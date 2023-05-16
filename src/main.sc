@@ -19,9 +19,10 @@ theme: /
 
     state: Timetable
         intent!: /Расписание
-        a: Нажмите на сеанс, если хотите купить билет. Если сеансы не высветились, значит, к сожалению, подходящих сеансов нет.
         script:
+            var n_buttons = 0
             if ($parseTree._film) {
+                $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.")
                 $session.film_id = $parseTree._film.film_id
                 if ($parseTree._date) {
                     $session.date = $parseTree._date.value.substring(0,10);
@@ -29,6 +30,7 @@ theme: /
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if (($session.date == shows[id].value.date ) && ($session.film_id == shows[id].value.film_id)) {
                             var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
+                            n_buttons = n_buttons + 1
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
                     }
@@ -37,6 +39,7 @@ theme: /
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if ($session.film_id == shows[id].value.film_id) {
                             var button_name = shows[id].value.date + " в " + shows[id].value.time + " за " + shows[id].value.date;
+                            n_buttons = n_buttons + 1
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
                     }
@@ -49,12 +52,20 @@ theme: /
                 for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                     if ($session.date == shows[id].value.date) {
                         var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
+                        n_buttons = n_buttons + 1
                         $reactions.inlineButtons({text: button_name, callback_data: id})
                     }
                 }
             }
-
             
+            else {
+                $reactions.answer("Пожалуйста, укажите дату или выберите фильм.");
+            }
+            
+            if (n_buttons == 0) {
+                $reactions.answer("Сеансы не найдены.");    
+            }
+        
     state: GetShowId
         event: telegramCallbackQuery
         script:
