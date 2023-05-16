@@ -29,14 +29,11 @@ theme: /
                 }
             }
             
-        state: ClickButtons
-            q: *
-            a: Нажмите, пожалуйста, кнопку.
-            go!: ..
+
 
     state: /DateTimetable
         intent!: /Расписание по дате
-        a: {{ $parseTree._date.value.substring(0,10).replace("-",".") }}
+        a: Нажмите на сеанс, если хотите купить билет.
         script:
             $session.date = $parseTree._date.value.substring(0,10);
             $session.date = $session.date.substring(8,10) + "." + $session.date.substring(5,7) + "." + $session.date.substring(0,4)
