@@ -1,12 +1,12 @@
 1;show_1;{"film_id": 1, "title": "Аватар: Путь воды", "date": "16.05.2022", ""time": "20:30", "cinema_room": 1, "format": "2D", "price": "300 руб."}
-2;show_1;{"film_id": 1, "title": "Аватар: Путь воды", "date": "16.05.2022", "time": "21:20", "cinema_room": 2, "format": "2D", "price": "300 руб."}
-3;show_1;{"film_id": 3, "title": "Холодное сердце", "date": "16.05.2022", ""time": "11:30", "cinema_room": 1, "format": "2D", "price": "300 руб."}
-4;show_1;{"film_id": 3, "title": "Холодное сердце", "date": "16.05.2022", "time": "14:40", "cinema_room": 2, "format": "2D", "price": "300 руб."}
-5;show_1;{"film_id": 1, "title": "Аватар: Путь воды", "date": "17.05.2022", "time": "10:30", "cinema_room": 3, "format": "2D", "price": "300 руб."}
-6;show_1;{"film_id": 2, "title": "Решение уйти", "date": "17.05.2022", ""time": "15:30", "cinema_room": 1, "format": "2D", "price": "300 руб."}
-7;show_1;{"film_id": 3, "title": "Холодное сердце", "date": "17.05.2022", "time": "18:30", "cinema_room": 3, "format": "2D", "price": "300 руб."}
-8;show_1;{"film_id": 2, "title": "Решение уйти", "date": "17.05.2022", "time": "19:40", "cinema_room": 2, "format": "2D", "price": "300 руб."}
-9;show_1;{"film_id": 1, "title": "Аватар: Путь воды", "date": "17.05.2022", "time": "20:20", "cinema_room": 2, "format": "2D", "price": "300 руб."}
-10;show_1;{"film_id": 2, "title": "Решение уйти", "date": "17.05.2022", "time": "22:30", "cinema_room": 3, "format": "2D", "price": "300 руб."}
-11;show_1;{"film_id": 3, "title": "Холодное сердце", "date": "18.05.2022", "time": "17:10", "cinema_room": 2, "format": "2D", "price": "300 руб."}
-12;show_1;{"film_id": 2, "title": "Решение уйти", "date": "18.05.2022", "time": "23:10", "cinema_room": 2, "format": "2D", "price": "300 руб."}
+2;show_2;{"film_id": 1, "title": "Аватар: Путь воды", "date": "16.05.2022", "time": "21:20", "cinema_room": 2, "format": "2D", "price": "300 руб."}
+3;show_3;{"film_id": 3, "title": "Холодное сердце", "date": "16.05.2022", ""time": "11:30", "cinema_room": 1, "format": "2D", "price": "300 руб."}
+4;show_4;{"film_id": 3, "title": "Холодное сердце", "date": "16.05.2022", "time": "14:40", "cinema_room": 2, "format": "2D", "price": "300 руб."}
+5;show_5;{"film_id": 1, "title": "Аватар: Путь воды", "date": "17.05.2022", "time": "10:30", "cinema_room": 3, "format": "2D", "price": "300 руб."}
+6;show_6;{"film_id": 2, "title": "Решение уйти", "date": "17.05.2022", ""time": "15:30", "cinema_room": 1, "format": "2D", "price": "300 руб."}
+7;show_7;{"film_id": 3, "title": "Холодное сердце", "date": "17.05.2022", "time": "18:30", "cinema_room": 3, "format": "2D", "price": "300 руб."}
+8;show_8;{"film_id": 2, "title": "Решение уйти", "date": "17.05.2022", "time": "19:40", "cinema_room": 2, "format": "2D", "price": "300 руб."}
+9;show_9;{"film_id": 1, "title": "Аватар: Путь воды", "date": "17.05.2022", "time": "20:20", "cinema_room": 2, "format": "2D", "price": "300 руб."}
+10;show_10;{"film_id": 2, "title": "Решение уйти", "date": "17.05.2022", "time": "22:30", "cinema_room": 3, "format": "2D", "price": "300 руб."}
+11;show_11;{"film_id": 3, "title": "Холодное сердце", "date": "18.05.2022", "time": "17:10", "cinema_room": 2, "format": "2D", "price": "300 руб."}
+12;show_12;{"film_id": 2, "title": "Решение уйти", "date": "18.05.2022", "time": "23:10", "cinema_room": 2, "format": "2D", "price": "300 руб."}
