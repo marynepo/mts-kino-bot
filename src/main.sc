@@ -20,7 +20,7 @@ theme: /
     state: Timetable
         intent!: /Расписание
         script:
-            var n_buttons = 0
+            var n_buttons = 0;
             if ($parseTree._film) {
                 $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.")
                 $session.film_id = $parseTree._film.film_id
@@ -30,18 +30,18 @@ theme: /
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if (($session.date == shows[id].value.date ) && ($session.film_id == shows[id].value.film_id)) {
                             var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.date;
-                            n_buttons = n_buttons + 1
+                            n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
                     }
                 }
-            }
+            
             
                 else {
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         if ($session.film_id == shows[id].value.film_id) {
                             var button_name = shows[id].value.time + " за " + shows[id].value.price;
-                            n_buttons = n_buttons + 1
+                            n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
                         }
                     }
@@ -55,7 +55,7 @@ theme: /
                 for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                     if ($session.date == shows[id].value.date) {
                         var button_name = shows[id].value.title + " в " + shows[id].value.time + " за " + shows[id].value.price;
-                        n_buttons = n_buttons + 1
+                        n_buttons = n_buttons + 1;
                         $reactions.inlineButtons({text: button_name, callback_data: id})
                     }
                 }
