@@ -43,9 +43,9 @@ theme: /
                 else {
                     $temp.date = currentDate()
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
-                        var i_date = shows[id].value.date.substring(0,10)
-                        i_date = i_date.substring(8,10) + "-" + i_date.substring(5,7) + "-" + i_date.substring(0,4)
-                        $reactions.answer(i_date);
+                        var i_date = shows[id].value.date.substring(0,10);
+                        i_date = i_date.substring(6,10) + "-" + i_date.substring(3,5) + "-" + i_date.substring(0,2);
+                        
                         if (($session.film_id == shows[id].value.film_id) && ($temp.date.isSameOrBefore(i_date))) {
                             var button_name = shows[id].value.date.substring(0,5) + " в " + shows[id].value.time;
                             n_buttons = n_buttons + 1;
