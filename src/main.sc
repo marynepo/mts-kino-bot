@@ -2,17 +2,16 @@ require: shows.csv
   name = shows
   var = shows
   
-require: slotfilling/slotFilling.sc
-  module = sys.zb-common
-  
 require: dateTime/dateTime.sc
   module = sys.zb-common
   
 patterns:
-        $watch = ([можно] [буд*] ((в прокате)|показ*|*смотреть|сходить|пойти|идти|есть))
-        $what = ({([на] (что | как* [;] (фильм* | сеанс*))) [$watch] @date})
-        $when = ({(когда | в какое время | во сколько) [$watch] [сеанс*] @film [@date]})
-        $timetable = ({(расписан* | афиш* ) [@date] [@film]})
+        $watch = [можно] [буд*] (показ*|*смотреть|сходить|пойти|(~идти|есть|увидеть) [в прокате]|в прокате)
+        $what = {([на] (что|как* (фильм*|сеанс*))) [$watch] @date}
+        $when = {(когда|в какое время|во сколько|в какие дни) [$watch] ([сеанс*|*фильм] @film) [@date]}
+        $what2 = как* [$watch] (фильм*|сеанс*) [в прокате] @date
+        $show = [$oneWord] {(({[*скаж*] [пожалуйста|плиз]}|[хочу] [узнать]) [информац*] [о] сеанс*) [@date] [@film]}
+        $timetable = ({(расписан* | афиш* ) [$oneWord] [@date] [@film]})
 
 theme: /
 
@@ -26,7 +25,7 @@ theme: /
 
 
     state: Timetable
-        q!: * ($what | $when | $timetable) *
+        q!: (* ($what|$what2|$when|$timetable) *|$show)
         script:
             var n_buttons = 0;
             if ($parseTree._film) {
