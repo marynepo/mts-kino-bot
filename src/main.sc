@@ -25,7 +25,7 @@ theme: /
         script:
             var n_buttons = 0;
             if ($parseTree._film) {
-                $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.")
+                $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.");
                 $session.film_id = $parseTree._film.film_id
                 if ($parseTree._date) {
                     $session.date = $parseTree._date.value.substring(0,10);
@@ -56,7 +56,7 @@ theme: /
             }
             
             else if ($parseTree._date) {
-                $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.")
+                $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.");
                 $session.date = $parseTree._date.value.substring(0,10);
                 $session.date = $session.date.substring(8,10) + "." + $session.date.substring(5,7) + "." + $session.date.substring(0,4)
                 for (var id = 1; id < Object.keys(shows).length + 1; id++) {
