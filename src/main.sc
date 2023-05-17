@@ -68,7 +68,7 @@ theme: /
             
             else {
                 n_buttons = -1;
-                $reactions.answer("Пожалуйста, укажите дату или выберите фильм.");
+                $reactions.answer("Пожалуйста, укажите дату или фильм.");
             }
             
             if (n_buttons == 0) {
@@ -92,7 +92,7 @@ theme: /
         a: /Тут должен быть переход к покупке билета/
         
     state: EndQuery
-        a: Спасибо. Обращайтесь еще.
+        a: Был рад помочь! Обращайтесь еще.
 
     state: NoMatch
         event!: noMatch
