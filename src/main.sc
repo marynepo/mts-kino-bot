@@ -43,7 +43,7 @@ theme: /
                 else {
                     $temp.date = currentDate().date.locale("ru").format("DD.MM.YYYY");
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
-                        if ($session.film_id == shows[id].value.film_id) && ($temp.date.isSameOrBefore(shows[id].value.date)) {
+                        if (($session.film_id == shows[id].value.film_id) && ($temp.date.isSameOrBefore(shows[id].value.date))) {
                             var button_name = shows[id].value.date.substring(0,5) + " в " + shows[id].value.time;
                             n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
