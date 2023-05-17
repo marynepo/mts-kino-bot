@@ -41,9 +41,11 @@ theme: /
             
             
                 else {
-                    $temp.date = currentDate().locale("ru").format("DD.MM.YYYY");
+                    $temp.date = currentDate()
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
-                        if (($session.film_id == shows[id].value.film_id) && ($temp.date.isSameOrBefore(shows[id].value.date))) {
+                        var i_date = shows[id].value.date.substring(0,10)
+                        i_date = i_date.substring(8,10) + "-" + i_date.substring(5,7) + "-" + i_date.substring(0,4)
+                        if (($session.film_id == shows[id].value.film_id) && ($temp.date.isSameOrBefore(i_date))) {
                             var button_name = shows[id].value.date.substring(0,5) + " в " + shows[id].value.time;
                             n_buttons = n_buttons + 1;
                             $reactions.inlineButtons({text: button_name, callback_data: id})
