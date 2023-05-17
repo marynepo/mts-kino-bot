@@ -7,6 +7,12 @@ require: slotfilling/slotFilling.sc
   
 require: dateTime/dateTime.sc
   module = sys.zb-common
+  
+patterns:
+        $watch = ([можно] [буд*] ((в прокате)|показ*|*смотреть|сходить|пойти|идти))
+        $what = ({(что | [на] как* (фильм* | сеанс*)) [$watch] @date})
+        $when = ({(когда | в какое время | во сколько) [$watch] [сеанс*] @film})
+        $timetable = ({(расписан* | афиш* ) [@date] [@film]})
 
 theme: /
 
@@ -20,10 +26,6 @@ theme: /
 
 
     state: Timetable
-        $watch = ([можно] [буд*] ((в прокате)|показ*|*смотреть|сходить|пойти|идти))
-        $what = {(что | [на] как* (фильм* | сеанс*)) [$watch] @date}
-        $when = {(когда | в какое время | во сколько) [$watch] [сеанс*] @film}
-        $timetable = {(расписан* | афиш* ) [@date] [@film]}
         q!: * ($what | $when | $timetable) *
         script:
             var n_buttons = 0;
