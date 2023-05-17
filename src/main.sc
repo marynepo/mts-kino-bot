@@ -42,7 +42,6 @@ theme: /
             
                 else {
                     $temp.date = currentDate().locale("ru").format("YYYY-MM-DD");
-                    $reactions.answer(i_date);
                     for (var id = 1; id < Object.keys(shows).length + 1; id++) {
                         var i_date = shows[id].value.date.substring(0,10);
                         i_date = i_date.substring(6,10) + "-" + i_date.substring(3,5) + "-" + i_date.substring(0,2);
