@@ -20,7 +20,11 @@ theme: /
 
 
     state: Timetable
-        intent!: /Расписание
+        $action = [можно] [буд*] (в прокате | показ*) | (*смотреть | (сходить | пойти | идти))
+        $what = {(что | [на] как* (фильм* | сеанс*)) [$action] @date}
+        $when = {(когда | в какое время | во сколько) [$action] [сеанс*] @film}
+        $timetable = {(расписан* | афиш* ) [@date] [@film]}
+        q!: * ($what | $when | $timetable) *
         script:
             var n_buttons = 0;
             if ($parseTree._film) {

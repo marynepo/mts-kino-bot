@@ -24,7 +24,7 @@
   },
   "intents" : [ {
     "path" : "/Расписание",
-    "enabled" : true,
+    "enabled" : false,
     "shared" : false,
     "phrases" : [ {
       "text" : "В какое время показывают @film"
