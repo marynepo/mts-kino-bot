@@ -7,11 +7,14 @@ require: dateTime/dateTime.sc
   
 patterns:
         $watch = [можно] [буд*] (показ*|*смотреть|сходить|пойти|(~идти|есть|увидеть) [в прокате]|в прокате)
-        $what = {([на] (что|как* (фильм*|сеанс*))) [$watch] @date}
-        $when = {(когда|в какое время|во сколько|в какие дни) [$watch] [на] ([сеанс*|*фильм] @film) [@date]}
+        $what = {([на] (что|как* [$watch] (фильм*|сеанс*))) [$watch] @date}
+        $when = {(когда|в какое время|во сколько|(в|по) ~какой ~день) $watch [на] ([сеанс*|*фильм] @film) [@date]}
+        $when2 = (в какое время|во сколько) {([сеанс*|*фильм] @film) [@date]}
         $what2 = как* [$watch] (фильм*|сеанс*) [в прокате] @date
-        $show = [$oneWord] {(({[*скаж*] [пожалуйста|плиз]}|[хочу] [узнать]) [информац*] [о] сеанс*) [@date] [@film]}
+        $show = [$oneWord] {(({[*скаж*] [пожалуйста|плиз]}|[хочу] [узнать]) [информац*] [о] сеанс*) [@date] ([на] [$oneWord] [@film])}
         $timetable = ({(расписан* | афиш* ) [$oneWord] [@date] [@film]})
+        $hi = (привет/пока)
+        $say = скажи
 
 theme: /
 
@@ -24,12 +27,18 @@ theme: /
         a: Здравствуйте! Чем я могу вам помочь?
 
 
+    state: SaySmth
+        # 4EX: скажи что-нибудь
+        # 4EX: привет бот скажи что нибудь
+        q!: [$hi] $say [$hi]
+        a: {{$parseTree.hi}}
+
     state: Timetable
         q!: (* ($what|$what2|$when|$timetable) *|$show)
         script:
             var n_buttons = 0;
             if ($parseTree._film) {
-                $reactions.answer("Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.");
+                $reactions.answer(".Нажмите на сеанс, если хотите узнать подробную информацию или купить билет.");
                 $session.film_id = $parseTree._film.film_id
                 if ($parseTree._date) {
                     $session.date = $parseTree._date.value.substring(0,10);
